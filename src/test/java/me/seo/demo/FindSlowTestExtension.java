@@ -1,5 +1,6 @@
 package me.seo.demo;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;

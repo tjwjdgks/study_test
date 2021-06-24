@@ -43,6 +43,7 @@ class StudyTest {
                 ()->assertEquals(StudyStatus.DRAFT,study.getStatus(),()->"test입니다"),
                 () ->assertTrue(study.getLimitCount()>0,()->"스터디 인원 10")
         );
+
     }
     @Test
     @Disabled // test 실행하지 않음

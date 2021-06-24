@@ -1,9 +1,11 @@
 package me.seo.demo.study;
 
 import me.seo.demo.domain.Member;
+import me.seo.demo.domain.Study;
 import me.seo.demo.member.MemberService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -13,8 +15,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 // mockito 애노테이션 사용
 // 구현체가 없는 경우 test할때 mock을 주로 사용한다
@@ -87,5 +88,28 @@ class StudyServiceTest {
                     memberService.findById(2L); }),
                 ()-> assertEquals(Optional.empty(),memberService.findById(3L))
         );
+    }
+    // mock 객체 확인
+    @Test
+    void testf5(){
+        StudyService studyService = new StudyService(memberService,studyRepository);
+        Member member = new Member();
+        member.setId(1L);
+        member.setEmail("test");
+        when(memberService.findById(1L)).thenReturn(Optional.of(member));
+        Study study = new Study(10,"test");
+        when(studyRepository.save(study)).thenReturn(study);
+        studyService.createNewStudy(1L,study);
+        verify(memberService, times(1)).notify(study);
+        // notify study 이후에 동작 x
+        //verifyNoMoreInteractions(memberService);
+        verify(memberService, times(1)).notify(member);
+        verify(memberService,never()).validate(any());
+
+        // 순서 test
+        InOrder inOrder = inOrder(memberService);
+        inOrder.verify(memberService).notify(study);
+
+        inOrder.verify(memberService).notify(member);
     }
 }
