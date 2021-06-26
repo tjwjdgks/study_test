@@ -1,11 +1,8 @@
-package me.seo.demo;
+package me.seo.demo.cases;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-
-import java.lang.annotation.Annotation;
 
 public class FindSlowTestExtension implements BeforeTestExecutionCallback, AfterTestExecutionCallback {
     private static final long THRESHOLD = 1000L;

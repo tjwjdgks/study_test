@@ -1,4 +1,4 @@
-package me.seo.demo;
+package me.seo.demo.cases;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

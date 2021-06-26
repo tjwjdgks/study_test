@@ -1,4 +1,4 @@
-package me.seo.demo;
+package me.seo.demo.cases;
 
 // 5-> 4 마이그레이션
 import org.junit.Before;

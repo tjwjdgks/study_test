@@ -1,4 +1,4 @@
-package me.seo.demo;
+package me.seo.demo.cases;
 
 import me.seo.demo.domain.Member;
 import me.seo.demo.domain.Study;

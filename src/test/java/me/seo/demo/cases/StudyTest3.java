@@ -1,4 +1,4 @@
-package me.seo.demo;
+package me.seo.demo.cases;
 
 // junit 확장 방법 단순해졌다
 // Extension 확장 모델 하나이다
@@ -6,7 +6,6 @@ package me.seo.demo;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
 // Extendion 선언적 방법
