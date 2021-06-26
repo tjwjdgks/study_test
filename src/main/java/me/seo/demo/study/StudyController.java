@@ -12,7 +12,7 @@ public class StudyController {
 
 
     @GetMapping("/study/{id}")
-    public Study getStudy(@PathVariable Long id) {
+    public Study getStudy(@PathVariable Long id) {  
         return repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Study not found for '" + id + "'"));
     }
